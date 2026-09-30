@@ -1,0 +1,38 @@
+# ---- Segredos e ambiente ----
+.env
+.env.local
+.env.*.local
+# .env.example É versionado de propósito — não adicionar aqui
+
+# ---- Java / Maven ----
+target/
+*.class
+*.jar
+!.mvn/wrapper/maven-wrapper.jar
+*.log
+
+# ---- Node / Next.js ----
+node_modules/
+.next/
+out/
+dist/
+build/
+*.tsbuildinfo
+.pnpm-store/
+npm-debug.log*
+pnpm-debug.log*
+
+# ---- IDEs ----
+.idea/
+*.iml
+*.iws
+.vscode/
+*.swp
+
+# ---- SO ----
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# ---- Docker / infra local ----
+infra/observability/*.local.yml
