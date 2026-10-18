@@ -3,13 +3,29 @@
 .env.local
 .env.*.local
 # .env.example É versionado de propósito — não adicionar aqui
+*.pem
+*.key
+*.p12
+*.jks
+# Overrides pessoais do Spring (não versionar credenciais reais)
+application-*-secret.y*ml
+application-override.y*ml
 
-# ---- Java / Maven ----
+# ---- Java / Maven / Spring ----
 target/
 *.class
 *.jar
 !.mvn/wrapper/maven-wrapper.jar
 *.log
+logs/
+HELP.md
+.classpath
+.factorypath
+.project
+.settings/
+.springBeans
+.sts4-cache/
+.apt_generated/
 
 # ---- Node / Next.js ----
 node_modules/
@@ -21,13 +37,22 @@ build/
 .pnpm-store/
 npm-debug.log*
 pnpm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+next-env.d.ts
+.vercel/
+.turbo/
+coverage/
+.eslintcache
 
 # ---- IDEs ----
 .idea/
 *.iml
 *.iws
+*.ipr
 .vscode/
 *.swp
+.claude/settings.local.json
 
 # ---- SO ----
 .DS_Store
