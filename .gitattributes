@@ -1,0 +1,15 @@
+# Normaliza todo arquivo de texto para LF no repositório,
+# independente do autocrlf configurado na máquina de cada um.
+# Evita scripts (.sh, entrypoints) quebrando dentro dos containers Docker.
+* text=auto eol=lf
+
+# Scripts do Windows mantêm CRLF (mais previsível no PowerShell)
+*.ps1 text eol=crlf
+*.cmd text eol=crlf
+
+# Binários — nunca tentar normalizar
+*.jar binary
+*.png binary
+*.jpg binary
+*.jpeg binary
+*.ico binary

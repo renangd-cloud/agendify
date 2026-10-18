@@ -1,0 +1,62 @@
+name: Task do plano
+description: Uma task vinda do planejamento (ex. T3.3, T7.5)
+title: "[T?.?] "
+labels: []
+body:
+  - type: input
+    id: task-id
+    attributes:
+      label: ID da task
+      description: O identificador exato do planejamento (ex. T3.3)
+      placeholder: "T3.3"
+    validations:
+      required: true
+
+  - type: dropdown
+    id: priority
+    attributes:
+      label: Prioridade
+      options:
+        - P0 (essencial, nunca cortar)
+        - P1 (completa o produto)
+        - P2 (bônus)
+    validations:
+      required: true
+
+  - type: dropdown
+    id: area
+    attributes:
+      label: Área
+      options:
+        - api
+        - web
+        - infra
+        - docs
+    validations:
+      required: true
+
+  - type: textarea
+    id: description
+    attributes:
+      label: Descrição
+      description: Copiar/resumir os passos da task no documento de planejamento
+      placeholder: O que precisa ser feito, em passos
+    validations:
+      required: true
+
+  - type: textarea
+    id: acceptance
+    attributes:
+      label: Critério de aceite
+      description: Como comprovar que a task está pronta
+    validations:
+      required: true
+
+  - type: input
+    id: depends-on
+    attributes:
+      label: Depende de
+      description: IDs de outras tasks que precisam estar concluídas antes (se houver)
+      placeholder: "T2.3, T3.1"
+    validations:
+      required: false
