@@ -14,8 +14,10 @@ class IntegrationSmokeTest extends IntegrationTest {
     @Test
     void contexto_sobe_com_postgres_do_container() throws Exception {
         try (var connection = dataSource.getConnection()) {
+
             assertThat(connection.getMetaData().getDatabaseProductName())
                     .isEqualTo("PostgreSQL");
+                    
             // não pode ser o Postgres do Compose (localhost:5432/agendify)
             assertThat(connection.getMetaData().getURL())
                     .doesNotContain(":5432/agendify");
