@@ -10,7 +10,7 @@ import org.testcontainers.postgresql.PostgreSQLContainer;
 public abstract class IntegrationTest {
 
     @ServiceConnection
-    static final PostgreSQLContainer POSTGRES = new PostgreSQLContainer("postgres:16");
+    static final PostgreSQLContainer POSTGRES = new PostgreSQLContainer("postgres:16").withReuse(true);
 
     static {
         POSTGRES.start();
