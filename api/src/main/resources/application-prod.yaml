@@ -35,5 +35,8 @@ management:
       show-details: always
 
 logging:
+  structured:
+    format:
+      console: logstash
   level:
-    com.evolvesoft.agendify.api: DEBUG
+    '[com.evolvesoft.agendify.api]': DEBUG
