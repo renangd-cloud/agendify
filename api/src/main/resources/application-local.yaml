@@ -35,14 +35,11 @@ management:
   endpoints:
     web:
       exposure:
-        include: health,info
+        include: health,info,prometheus
   endpoint:
     health:
       show-details: always
 
 logging:
-  structured:
-    format:
-      console: logstash
   level:
     com.evolvesoft.agendify.api: DEBUG
