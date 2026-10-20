@@ -12,6 +12,7 @@ public class SecurityConfig {
         http.csrf(csrf -> csrf.disable())
             .authorizeHttpRequests(a -> a
                 .requestMatchers("/actuator/health/**").permitAll()
+                .requestMatchers("/v1/api-docs/**", "/swagger-ui/**", "/swagger-ui.html").permitAll()
                 .anyRequest().authenticated());
         return http.build();
     }
