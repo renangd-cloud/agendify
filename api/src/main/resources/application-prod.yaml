@@ -21,6 +21,13 @@ spring:
     host: localhost
     port: 1025
 
+springdoc:
+  api-docs:
+    path: /v1/api-docs
+  swagger-ui:
+    path: /swagger-ui.html
+    enabled: true
+
 app:
   jwt:
     secret: ${JWT_SECRET}
