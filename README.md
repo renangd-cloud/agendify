@@ -44,6 +44,32 @@ O reuso também exige `.withReuse(true)` na declaração do container, o que já
 
 > Isso vale **apenas para a máquina local**. O arquivo fica no diretório do usuário, não vai para o repositório nem para o CI, para que o ambiente do CI seja sempre limpo.
 
+## Convenções da API
+
+### Paginação
+
+Endpoints de listagem recebem os parâmetros de query `page` (começa em `0`), `size` e `sort` (ex.: `?page=0&size=20&sort=name,asc`). Se `size` não for informado, o padrão é `20`; o máximo aceito é `100`.
+
+A resposta segue sempre o formato de `PageResponse`:
+
+```json
+{
+  "items": [],
+  "total": 0,
+  "page": 0,
+  "size": 20
+}
+```
+
+- `items`: registros da página atual
+- `total`: total de registros em todas as páginas
+- `page`: índice da página atual (começa em `0`)
+- `size`: tamanho da página
+
+### Identificadores
+
+Todos os identificadores são `UUID`, tanto nas entidades e DTOs quanto nas path variables (`/recursos/{id}`).
+
 ## Status do projeto
 
 Este projeto está sendo construído 100% localmente antes de qualquer publicação — veja o plano de tasks para o roadmap completo.
