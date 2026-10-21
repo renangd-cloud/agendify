@@ -35,3 +35,20 @@ jobs:
 
       - name: Build e testes
         run: ./mvnw -B verify
+
+      - name: Resumo de cobertura
+        if: always()
+        run: |
+          if [ -f target/site/jacoco/jacoco.csv ]; then
+            awk -F, 'NR>1 { missed+=$4; covered+=$5 }
+              END { printf "### Cobertura (instruções)\n\n**%.1f%%** (%d de %d)\n", 100*covered/(missed+covered), covered, missed+covered }' \
+              target/site/jacoco/jacoco.csv >> "$GITHUB_STEP_SUMMARY"
+          fi
+
+      - name: Anexar relatório JaCoCo
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: jacoco-report
+          path: api/target/site/jacoco
+          if-no-files-found: warn
