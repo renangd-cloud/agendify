@@ -9,10 +9,11 @@ import org.testcontainers.postgresql.PostgreSQLContainer;
 @ActiveProfiles("test")
 public abstract class IntegrationTest {
 
-    @ServiceConnection
-    static final PostgreSQLContainer POSTGRES = new PostgreSQLContainer("postgres:16").withReuse(true);
+  @ServiceConnection
+  static final PostgreSQLContainer POSTGRES =
+      new PostgreSQLContainer("postgres:16").withReuse(true);
 
-    static {
-        POSTGRES.start();
-    }
+  static {
+    POSTGRES.start();
+  }
 }
