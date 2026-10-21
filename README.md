@@ -44,6 +44,16 @@ O reuso também exige `.withReuse(true)` na declaração do container, o que já
 
 > Isso vale **apenas para a máquina local**. O arquivo fica no diretório do usuário, não vai para o repositório nem para o CI, para que o ambiente do CI seja sempre limpo.
 
+## Formatação de código
+
+O projeto usa [Spotless](https://github.com/diffplug/spotless) para padronizar a formatação. **Antes de commitar**, rode a partir do diretório `api/`:
+
+```bash
+./mvnw spotless:apply
+```
+
+Para apenas verificar sem alterar arquivos: `./mvnw spotless:check`.
+
 ## Convenções da API
 
 ### Paginação
