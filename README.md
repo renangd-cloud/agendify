@@ -1,4 +1,5 @@
 # Agendify
+[![API CI](https://github.com/renangd-cloud/agendify/actions/workflows/api-ci.yml/badge.svg)](https://github.com/renangd-cloud/agendify/actions/workflows/api-ci.yml)
 
 > 🚧 **Em construção.** Este é um projeto de portfólio sendo desenvolvido publicamente, semana a semana. Acompanhe o progresso pelas [issues](../../issues) e [pull requests](../../pulls).
 
