@@ -6,15 +6,14 @@ import org.springframework.jdbc.core.JdbcTemplate;
 
 public class TenantPersistenceTest extends IntegrationTest {
 
-    @Autowired
-    JdbcTemplate jdbc;
+  @Autowired JdbcTemplate jdbc;
 
-    @Test
-    void grava_e_le_um_tenant() {
-        jdbc.update("INSERT INTO tenant (name) VALUES ('Acme')");
+  @Test
+  void grava_e_le_um_tenant() {
+    jdbc.update("INSERT INTO tenant (name) VALUES ('Acme')");
 
-        String name = jdbc.queryForObject("SELECT name FROM tenant WHERE name = 'Acme'", String.class);
+    String name = jdbc.queryForObject("SELECT name FROM tenant WHERE name = 'Acme'", String.class);
 
-        assert(name).equals("Acme");
-    }
+    assert (name).equals("Acme");
+  }
 }
