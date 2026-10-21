@@ -16,7 +16,8 @@ class IntegrationSmokeTest extends IntegrationTest {
         try (var connection = dataSource.getConnection()) {
 
             assertThat(connection.getMetaData().getDatabaseProductName())
-                    .isEqualTo("PostgreSQL");
+                    // TODO: quebra proposital para validar o CI — reverter para "PostgreSQL"
+                    .isEqualTo("MySQL");
                     
             // não pode ser o Postgres do Compose (localhost:5432/agendify)
             assertThat(connection.getMetaData().getURL())
