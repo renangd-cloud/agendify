@@ -27,5 +27,18 @@ services:
       - "1025:1025"   # SMTP
       - "8025:8025"   # UI web
 
+  prometheus:
+    image: prom/prometheus:v3.15.1
+    container_name: agendify-prometheus
+    restart: unless-stopped
+    ports:
+      - "9090:9090"
+    volumes:
+      - ./observability/prometheus.yml:/etc/prometheus/prometheus.yml:ro
+      - prometheus_data:/prometheus
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
+
 volumes:
   postgres_data:
+  prometheus_data:
