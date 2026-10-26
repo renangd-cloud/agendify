@@ -49,7 +49,7 @@ management:
       probability: 1.0
     export:
       otlp:
-        enabled: false
+        enabled: true
   opentelemetry:
     tracing:
       export:
