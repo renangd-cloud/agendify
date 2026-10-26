@@ -52,7 +52,24 @@ services:
       - ./observability/tempo.yaml:/etc/tempo.yaml:ro
       - tempo_data:/var/tempo
 
+  grafana:
+    image: grafana/grafana:13.2.4
+    container_name: agendify-grafana
+    restart: unless-stopped
+    depends_on:
+      - prometheus
+      - tempo
+    ports:
+      - "3000:3000"
+    environment:
+      GF_SECURITY_ADMIN_USER: ${GRAFANA_ADMIN_USER:-admin}
+      GF_SECURITY_ADMIN_PASSWORD: ${GRAFANA_ADMIN_PASSWORD:-admin}
+    volumes:
+      - ./observability/grafana/provisioning:/etc/grafana/provisioning:ro
+      - grafana_data:/var/lib/grafana
+
 volumes:
   postgres_data:
   prometheus_data:
   tempo_data:
+  grafana_data:
