@@ -3,3 +3,8 @@ spring:
     name: api
   profiles:
     default: local
+management:
+  otlp:
+    metrics:
+      export:
+        enabled: false
